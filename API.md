@@ -1,0 +1,82 @@
+# API Reference <a name="API Reference"></a>
+
+## Constructs <a name="Constructs"></a>
+
+### RenovoS3Bucket <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket"></a>
+
+#### Initializers <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.Initializer"></a>
+
+```typescript
+import { RenovoS3Bucket } from '@renovosolutions/cdk-library-renovo-s3-bucket'
+
+new RenovoS3Bucket(scope: Construct, id: string, props: IRenovoS3BucketProps)
+```
+
+##### `scope`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.parameter.scope"></a>
+
+- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.parameter.id"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.parameter.props"></a>
+
+- *Type:* [`@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps`](#@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps)
+
+---
+
+
+
+#### Properties <a name="Properties"></a>
+
+##### `bucket`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.property.bucket"></a>
+
+```typescript
+public readonly bucket: Bucket;
+```
+
+- *Type:* [`@aws-cdk/aws-s3.Bucket`](#@aws-cdk/aws-s3.Bucket)
+
+---
+
+
+
+
+## Protocols <a name="Protocols"></a>
+
+### IRenovoS3BucketProps <a name="@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps"></a>
+
+- *Implemented By:* [`@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps`](#@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps)
+
+
+#### Properties <a name="Properties"></a>
+
+##### `lifecycleRules`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps.property.lifecycleRules"></a>
+
+```typescript
+public readonly lifecycleRules: LifecycleRule[];
+```
+
+- *Type:* [`@aws-cdk/aws-s3.LifecycleRule`](#@aws-cdk/aws-s3.LifecycleRule)[]
+
+Rules that define how Amazon S3 manages objects during their lifetime.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* `string`
+
+The name of the bucket.
+
+---
+
