@@ -9,7 +9,7 @@
 ```typescript
 import { RenovoS3Bucket } from '@renovosolutions/cdk-library-renovo-s3-bucket'
 
-new RenovoS3Bucket(scope: Construct, id: string, props: IRenovoS3BucketProps)
+new RenovoS3Bucket(scope: Construct, id: string, props: RenovoS3BucketProps)
 ```
 
 ##### `scope`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.parameter.scope"></a>
@@ -26,7 +26,7 @@ new RenovoS3Bucket(scope: Construct, id: string, props: IRenovoS3BucketProps)
 
 ##### `props`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.parameter.props"></a>
 
-- *Type:* [`@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps`](#@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps)
+- *Type:* [`@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3BucketProps`](#@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3BucketProps)
 
 ---
 
@@ -45,18 +45,19 @@ public readonly bucket: Bucket;
 ---
 
 
+## Structs <a name="Structs"></a>
 
+### RenovoS3BucketProps <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3BucketProps"></a>
 
-## Protocols <a name="Protocols"></a>
+#### Initializer <a name="[object Object].Initializer"></a>
 
-### IRenovoS3BucketProps <a name="@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps"></a>
+```typescript
+import { RenovoS3BucketProps } from '@renovosolutions/cdk-library-renovo-s3-bucket'
 
-- *Implemented By:* [`@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps`](#@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps)
+const renovoS3BucketProps: RenovoS3BucketProps = { ... }
+```
 
-
-#### Properties <a name="Properties"></a>
-
-##### `lifecycleRules`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps.property.lifecycleRules"></a>
+##### `lifecycleRules`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3BucketProps.property.lifecycleRules"></a>
 
 ```typescript
 public readonly lifecycleRules: LifecycleRule[];
@@ -68,7 +69,7 @@ Rules that define how Amazon S3 manages objects during their lifetime.
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.IRenovoS3BucketProps.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3BucketProps.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -79,4 +80,6 @@ public readonly name: string;
 The name of the bucket.
 
 ---
+
+
 
