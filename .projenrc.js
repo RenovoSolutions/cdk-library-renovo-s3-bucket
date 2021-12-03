@@ -2,7 +2,7 @@ const { AwsCdkConstructLibrary, NpmAccess } = require('projen');
 const project = new AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
-  cdkVersion: '1.134.0',
+  cdkVersion: '2.0.0',
   defaultReleaseBranch: 'master',
   majorVersion: '2',
   releaseBranches: {
@@ -14,8 +14,10 @@ const project = new AwsCdkConstructLibrary({
   description: 'An AWS CDK construct library for creating S3 buckets with desirable defaults.',
   repositoryUrl: 'https://github.com/RenovoSolutions/cdk-library-renovo-s3-bucket.git',
   cdkDependencies: [
-    '@aws-cdk/core',
-    '@aws-cdk/aws-s3',
+    'aws-cdk-lib',
+  ],
+  deps: [
+    'constructs@^10.0.0',
   ],
   keywords: [
     'cdk',
@@ -81,5 +83,6 @@ const project = new AwsCdkConstructLibrary({
     dotNetNamespace: 'renovosolutions',
     packageId: 'Renovo.AWSCDK.RenovoS3Bucket',
   },
+  workflowNodeVersion: '14.17.0',
 });
 project.synth();

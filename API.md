@@ -14,7 +14,7 @@ new RenovoS3Bucket(scope: Construct, id: string, props: RenovoS3BucketProps)
 
 ##### `scope`<sup>Required</sup> <a name="@renovosolutions/cdk-library-renovo-s3-bucket.RenovoS3Bucket.parameter.scope"></a>
 
-- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+- *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
@@ -40,7 +40,7 @@ new RenovoS3Bucket(scope: Construct, id: string, props: RenovoS3BucketProps)
 public readonly bucket: Bucket;
 ```
 
-- *Type:* [`@aws-cdk/aws-s3.Bucket`](#@aws-cdk/aws-s3.Bucket)
+- *Type:* [`aws-cdk-lib.aws_s3.Bucket`](#aws-cdk-lib.aws_s3.Bucket)
 
 ---
 
@@ -63,7 +63,7 @@ const renovoS3BucketProps: RenovoS3BucketProps = { ... }
 public readonly lifecycleRules: LifecycleRule[];
 ```
 
-- *Type:* [`@aws-cdk/aws-s3.LifecycleRule`](#@aws-cdk/aws-s3.LifecycleRule)[]
+- *Type:* [`aws-cdk-lib.aws_s3.LifecycleRule`](#aws-cdk-lib.aws_s3.LifecycleRule)[]
 
 Rules that define how Amazon S3 manages objects during their lifetime.
 
