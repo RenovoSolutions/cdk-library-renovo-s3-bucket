@@ -1,5 +1,5 @@
-import * as s3 from '@aws-cdk/aws-s3';
-import * as cdk from '@aws-cdk/core';
+import { aws_s3 as s3, RemovalPolicy } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 
 export interface RenovoS3BucketProps {
   /**
@@ -12,18 +12,18 @@ export interface RenovoS3BucketProps {
   readonly name?: string;
 }
 
-export class RenovoS3Bucket extends cdk.Construct {
+export class RenovoS3Bucket extends Construct {
 
   public readonly bucket: s3.Bucket;
 
-  constructor(scope: cdk.Construct, id: string, props: RenovoS3BucketProps) {
+  constructor(scope: Construct, id: string, props: RenovoS3BucketProps) {
     super(scope, id);
 
     this.bucket = new s3.Bucket(this, 'bucket', {
       bucketName: props.name,
       // data retention
       objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_PREFERRED,
-      removalPolicy: cdk.RemovalPolicy.RETAIN,
+      removalPolicy: RemovalPolicy.RETAIN,
       versioned: true,
       lifecycleRules: props.lifecycleRules,
       // security
