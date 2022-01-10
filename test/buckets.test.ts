@@ -1,5 +1,5 @@
-import { SynthUtils } from '@aws-cdk/assert';
 import { aws_s3 as s3, App, Stack, Duration } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
 import { RenovoS3Bucket } from '../src/index';
 
 test('Snapshot', () => {
@@ -22,5 +22,5 @@ test('Snapshot', () => {
     }],
   });
 
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
