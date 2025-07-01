@@ -3,7 +3,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.86.0',
+  cdkVersion: '2.202.0',
+  jsiiVersion: '^5.8.0',
   defaultReleaseBranch: 'master',
   majorVersion: 2,
   releaseBranches: {
@@ -72,7 +73,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   eslint: true,
   publishToPypi: {
     distName: 'renovosolutions.aws-cdk-renovo-s3-bucket',
-    module: 'renovo_s3_bucket',
+    module: 'renovosolutions_s3_bucket',
   },
   publishToNuget: {
     dotNetNamespace: 'renovosolutions',
