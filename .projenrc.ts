@@ -7,11 +7,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   jsiiVersion: '^5.8.0',
   defaultReleaseBranch: 'master',
   majorVersion: 2,
-  releaseBranches: {
-    v1: {
-      majorVersion: 1,
-    },
-  },
   name: '@renovosolutions/cdk-library-renovo-s3-bucket',
   description: 'An AWS CDK construct library for creating S3 buckets with desirable defaults.',
   repositoryUrl: 'https://github.com/RenovoSolutions/cdk-library-renovo-s3-bucket.git',
@@ -21,51 +16,22 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'aws-cdk-construct',
     'projen',
   ],
+  buildWorkflow: false,
   depsUpgrade: true,
   depsUpgradeOptions: {
+    workflow: false,
     workflowOptions: {
       labels: ['auto-approve', 'deps-upgrade'],
     },
     exclude: ['projen'],
   },
   githubOptions: {
-    mergify: true,
-    mergifyOptions: {
-      rules: [
-        {
-          name: 'Automatically approve dependency upgrade PRs if they pass build',
-          actions: {
-            review: {
-              type: 'APPROVE',
-              message: 'Automatically approved dependency upgrade PR',
-            },
-          },
-          conditions: [
-            'label=auto-approve',
-            'label=deps-upgrade',
-            '-label~=(do-not-merge)',
-            'status-success=build',
-            'author=github-actions[bot]',
-            'title="chore(deps): upgrade dependencies"',
-          ],
-        },
-      ],
-    },
+    mergify: false,
     pullRequestLintOptions: {
-      semanticTitle: true,
-      semanticTitleOptions: {
-        types: [
-          'chore',
-          'docs',
-          'feat',
-          'fix',
-          'ci',
-          'refactor',
-          'test',
-        ],
-      },
+      semanticTitle: false,
     },
   },
+  stale: false,
   releaseToNpm: true,
   release: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
@@ -84,11 +50,15 @@ const project = new awscdk.AwsCdkConstructLibrary({
 new javascript.UpgradeDependencies(project, {
   include: ['projen'],
   taskName: 'upgrade-projen',
-  workflow: true,
+  workflow: false,
   workflowOptions: {
     schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 2 * * 1']),
   },
   pullRequestTitle: 'upgrade projen',
 });
+
+// Ignore the release workflow files so they're not committed to git
+project.gitignore.exclude('!/.github/workflows/release.yml');
+project.gitignore.addPatterns('.github/workflows/release.yml');
 
 project.synth();
